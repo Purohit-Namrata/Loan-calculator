@@ -15,9 +15,15 @@ def calculate_emi():
     total_amount_paid=info1+interest_component
     l9.config(text=total_amount_paid)
 
-    no_of_emi=int(total_amount_paid/no_of_month)
-    l11.config(text=no_of_emi)
-        
+    interest_component_in_emi=info1*roi
+    l11.config(text=interest_component_in_emi)
+
+    principal_comp_in_emi=emi-interest_component_in_emi
+    l13.config(text=principal_comp_in_emi)
+
+
+
+    
 root=Tk()
 root.title("Loan Calculator")
 root.minsize(width=400,height=400)
@@ -55,12 +61,16 @@ l8.pack()
 l9=Label(root, text= "")
 l9.pack()
 
-l10=Label(root, text="Number of emi")
+l10=Label(root, text="Interest component in emi")
 l10.pack()
-
 
 l11=Label(root,text="")
 l11.pack()
 
+l12=Label(root, text="Principal component in emi")
+l12.pack()
+
+l13=Label(root,text="")
+l13.pack()
 
 root.mainloop()
